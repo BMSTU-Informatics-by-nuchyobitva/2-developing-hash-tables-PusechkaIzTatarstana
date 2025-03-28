@@ -34,19 +34,18 @@ private:
         }
         return realsize;
     }
-        unsigned int mixBits(unsigned int key) {// перемешивает биты в числе
-            key ^= key >> 16;       
-            key *= 0x85ebca6b;       
-            key ^= key >> 13;         
-            key *= 0xc2b2ae35;        
-            key ^= key >> 16;        
-            return key;
-        }
+    unsigned int mixBits(unsigned int key) {// перемешивает биты в числе
+        key ^= key >> 16;       
+        key *= 0x85ebca6b;       
+        key ^= key >> 13;         
+        key *= 0xc2b2ae35;        
+        key ^= key >> 16;        
+        return key;
+    }
     
 
-    int hashFunction(const std::string& heroName, int tableSize) {     //Хэш-функция для строки
-        unsigned int hash = 0;  
-
+    int hashFunction(string heroName, int tableSize) {     //Хэш-функция для строки
+        unsigned int hash = 0; 
         for (char c : heroName) {
             
             hash = mixBits(hash ^ static_cast<unsigned int>(c));
