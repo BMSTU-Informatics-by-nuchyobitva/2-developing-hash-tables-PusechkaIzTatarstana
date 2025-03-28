@@ -253,9 +253,9 @@ int main()
             default:
                 cout << "Неверный выбор!" << endl;
         }
-```
         
     } while(c != -1);
 
     return 0;
 }
+```
